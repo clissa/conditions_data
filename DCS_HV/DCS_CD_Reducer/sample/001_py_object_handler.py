@@ -39,5 +39,27 @@ get_object           Load pickle file from local server into environment.
 ==================== =========================================================
 
 """
+### TO DO:
+#    1) implement try/except controls for errors handling --> verify possible 
+#       errors
+#    2) add get_object function to retrieve results
+#    3) add explicit return
+#    4) add docstring
+
+import pickle
+
+def save_object(obj_name, filename):
+    """Save python obj_name to the file and path specified in filename."""
+     with open(filename+".pkl", 'wb') as output:  # Overwrites any existing file.
+#    try:
+        pickle.dump(obj_name, output, pickle.HIGHEST_PROTOCOL)
+#    except:
+#        print("Some error has occurred")
+#        return status
+            
+def get_object(filename, obj_name):
+    """Retrieve filename from local disk and store it in obj_name."""
+    with open(filename+".pkl", 'rb') as input:
+        return pickle.load(input)
 
         
