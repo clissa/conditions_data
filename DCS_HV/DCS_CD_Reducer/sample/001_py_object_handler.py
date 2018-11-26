@@ -25,7 +25,6 @@ Created on Mon Nov 19 17:12:02 2018
 
 @author: Luca Clissa
 """
-
 """
 ========================
 Python Objects Handler
@@ -37,7 +36,6 @@ Utility functions
 save_object          Save object from environment to local server.
 get_object           Load pickle file from local server into environment.
 ==================== =========================================================
-
 """
 ### TO DO:
 #    1) implement try/except controls for errors handling --> verify possible 
@@ -50,7 +48,7 @@ import pickle
 
 def save_object(obj_name, filename):
     """Save python obj_name to the file and path specified in filename."""
-     with open(filename+".pkl", 'wb') as output:  # Overwrites any existing file.
+    with open(filename+".pkl", 'wb') as output:  # Overwrites any existing file.
 #    try:
         pickle.dump(obj_name, output, pickle.HIGHEST_PROTOCOL)
 #    except:
