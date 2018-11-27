@@ -77,7 +77,8 @@ def select_channel(conn,channel,hvlist=(1,48),metric="sd",resolution=0.5):
     resolution: maximal difference tolerated within same-knot set
     
     Return values:
-    data
+    data_dict: dictionary with real data as numpy array
+    knots_dict: dictionary with endpoints of constant intervals
     
     The function filters the table CONDBR2_F0003_IOVS selecting just
     channels specified in channel and subchannels in the range defi-
@@ -95,7 +96,6 @@ def select_channel(conn,channel,hvlist=(1,48),metric="sd",resolution=0.5):
     
     start_idx = int(hvlist[0])
     end_idx = int(hvlist[1])
-    
     cur = conn.cursor()
     cur.execute('SELECT * FROM CONDBR2_F0003_IOVS')
     # retrieve column headers
